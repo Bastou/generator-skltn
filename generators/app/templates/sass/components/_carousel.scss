@@ -1,0 +1,103 @@
+/* $CAROUSEL
+   ========================================================================== */
+
+   .swiper-pagination-bullet {
+   	cursor: pointer;
+   	display: inline-block;
+   	width: 13px;
+   	height: 13px;
+   	background: rgba($dominant-color, 0.7);
+   	margin: 0 5px;
+   	-webkit-border-radius: 50%;
+   	-moz-border-radius: 50%;
+   	border-radius: 50%;
+   	transition: border 0.1s ease;
+   	opacity: 1;
+   }
+
+   .swiper-pagination-bullet-active {
+   	opacity: 1;
+   	position: relative;
+   	top:1px;
+   	width: 14px;
+   	height: 14px;
+    border: 2px solid $dominant-color;
+    background: transparent;
+  }
+
+
+  $swiper-button-size : 30px;
+
+
+  .swiper-button-prev, 
+  .swiper-button-next {
+    position: absolute;
+    width: $swiper-button-size;
+    height: $swiper-button-size;
+    background: none;
+    font-size: $swiper-button-size;
+    line-height: $swiper-button-size;
+    margin-top: -$swiper-button-size/2;
+    &:hover {
+     @extend .text-shine;
+   }
+ }
+
+   /* Slider fade
+   ----------------------------------------------------------------------------------------*/
+
+   .swiper-container-fade .swiper-slide {
+    opacity: 0;
+  }
+
+  .pagination-dominant-color {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    .swiper-pagination-bullet {
+     border-color: $grey2;
+   }
+   .swiper-pagination-bullet-active {
+     background: $dominant-color;
+   }
+ }
+
+   /* Custom sliders
+   ----------------------------------------------------------------------------------------*/
+
+   /* Slider section
+   ------------------------------------------*/
+   .slider-section-wrapper {
+     position: relative;
+     .swiper-slide {
+      @media #{$max-medium} {
+        margin-left: auto;
+      }
+     }
+     .swiper-button {
+       color: $base-color;
+     }
+     .swiper-button-next {
+       right: -10%;
+       @media #{$max-xl} {
+        right: -40px;
+      }
+    }
+    .swiper-button-prev{
+     left: -10%;
+     @media #{$max-xl} {
+      left: -40px;
+    }
+  }
+  @media #{$max-xl} {
+    .left-vertical-menu & .swiper-button {
+      display: none;
+    }
+  }
+}
+

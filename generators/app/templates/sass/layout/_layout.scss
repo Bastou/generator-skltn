@@ -1,0 +1,148 @@
+/* $LAYOUT
+========================================================================== */
+
+html, body {
+	min-height: 100%;
+}
+
+html {
+	background: $base-background;
+}
+
+body {
+	position: relative;
+	background-color: $body-background;
+	/* Evite le saut au passage du menu en fix  */
+	padding-top: $navigation-height;
+	&.has-header-top-bar {
+		padding-top: $navigation-height + $headertop-height;
+		@media #{$max-small} {
+			padding-top: $navigation-height-mobile ;
+		}
+	}
+	&.boxed {
+		max-width: $main-container-width;
+		margin : 0 auto;
+	}
+	@media #{$max-small} {
+		padding-top: $navigation-height-mobile ;
+	}
+}
+
+.mobile {
+	body {
+		min-width: 100%;
+	}
+}
+
+.wrapper-site {
+	position:relative;
+	overflow:hidden;
+}
+
+/*
+ * Contenu principal
+ */
+ main.container {
+ 	position: relative;
+ 	z-index: 10;
+ 	@media #{$max-small} {
+		margin-bottom: 0;
+	}
+ }
+
+
+
+/* BANNER
+----------------------------------------------------------------------------------------*/
+
+.banner {
+	position: relative;
+	&__text {
+		@include centerer('vertical');
+		width: 100%;
+		text-align: center;
+		z-index: 5;
+
+	}
+}
+
+.banner-map {
+	width: 100%;
+	padding-top: 28.6%;
+	background-color: $light-grey;
+}
+
+.banner-img {
+	background-size: cover;
+	background-position: center center;
+	width: 100%;
+	padding-top: 28.6%;
+	background-color: $light-grey;
+	&.banner01 {
+		background-image: url('../images/bandeau_metiersdoccitanie.jpg');
+	}
+	@media #{$max-small} {
+		padding-top: 53%;
+	}
+}
+
+
+/* PAGE CONTENT
+----------------------------------------------------------------------------------------*/
+
+// Page content layout
+
+$marge_content-bottom: 120px;
+
+main {
+	margin-bottom: $marge_content-bottom;
+}
+.content {
+	padding-bottom: $large-value;
+	//background-color: #FFF; //Si on met un fond ca masque les images de décorations
+	.section {
+		margin-bottom: 80px;
+		&.row {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+.container {
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+.page__tools {
+	float: right;
+}
+
+/* SECTIONS
+------------------------------------------*/
+
+.section-grey {
+	background-color: $grey;
+}
+
+.section-lightgrey {
+	background-color: $light-grey2;
+	&:last-child {
+		margin-bottom: -$marge_content-bottom;
+	}
+}
+
+.bg-extended-wrapper {
+	position: relative;
+	z-index: 1;
+}
+
+.bg-extended {
+	@extend .absolute-fit;
+	z-index:-1;
+	.row {
+		height: 100%;
+	}
+}

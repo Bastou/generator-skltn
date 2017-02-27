@@ -1,0 +1,154 @@
+// font sizes
+$base-font-size : 1.6rem; // if "15px" then 1em = 15px
+
+$line-height    : 1.5;
+$h1-size        : 4.2rem; 
+$h2-size        :  2.6rem; 
+$h3-size        : 1.6rem; 
+$h4-size        : 2.4rem; 
+$h5-size        : 16px; 
+$h6-size        : 1.6rem; 
+$nav-link-size: 2.4rem;
+
+
+// Paragraphes sizes
+$text-size  : $base-font-size;
+$text-line-height  : 2.8rem;
+$p-bigger-size: 2rem;
+
+// Titres sizes
+$titre-slide-size: 6rem;
+$titre-page-size: 3.6rem;
+$titre-chapeau-size: 2rem;
+$sous-titre-size: 2rem;
+$section-size: 4.2rem;
+$titre-paragraphe-size: 2rem;
+$titre-bloc-size: 2rem;
+$titre-footer-size: 1.4rem;
+
+// Google font weights:
+$thin: 100;  
+$extra-light: 200;  
+$light: 300;  
+$normal: 400;  
+$medium: 500;  
+$semi-bold: 600;  
+$bold: 700;  
+$extra-bold: 800;  
+$ultra-bold: 900;
+
+// font stacks
+$font-stack-common    : "Helvetica Neue", "Helvetica", Arial, sans-serif;
+$font-stack-headings  : $font-stack-common;
+
+// colors
+$base-color: #686666;
+$base-text-color :   $base-color;
+$dominant-color: #0e0303;
+
+$color1 : $dominant-color; 
+$color2 : #484848; 
+$color3 : #f2f2f2;
+
+$white : #FFFFFF;
+$base-grey    : #555555;
+$base-black : #000101;
+
+$grey: #aaaaaa;
+$grey2: #e3e3e3;
+$grey3: #d2d2d2;
+$grey4: #e0e0e0;
+$light-grey : #eaeaea;
+$light-grey2 : #f2f2f2;
+
+// background colors
+$base-background: #a4a3a3; // body background color
+$body-background: #ffffff; // body background color
+$bg-color1     : #e4edf2; // primary elements background color
+$bg-color2     : #8aabc2; // secondary elements background color
+
+// spacings (choose unit you prefer)
+$paragraph-spacing : 40px;
+$vertical-spacing: 50px; // Vertical spacing between elements
+$tiny-value             : 10px; // tiny value for margins / paddings
+$small-value            : 20px; // small value for margins / paddings
+$medium-value           : 30px; // medium value for margins / paddings
+$large-value            : 60px; // large value for margins / paddings
+$extra-large-value      : 100px; // extra large value for margins / paddings
+$ultra-large-value      : 160px; // ultra large value for margins / paddings
+
+/* Layout
+----------------------------------------------------------------------------------------*/
+
+// If body boxed and not full width
+$main-container-width: 1200px;
+
+/* Grid
+------------------------------------------*/
+
+$grid-gutter-width : 4rem !default; // 40px
+$grid-gutter-width-base : $grid-gutter-width !default; // 40px
+$bootstrap-padding: 20px;
+
+$container-max-widths: (
+  sm: 720px,
+  md: 960px,
+  lg: 1200px,
+  xl: $main-container-width
+) !default;
+
+
+$col-14-3-w : 21.4285714%;
+$col-14-11-w: 78.571428%;
+
+// breakpoints 
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs: 0,
+  // Small screen / phone
+  sm: 768px,
+  // Medium screen / tablet
+  md: 960px,
+  // Large screen / desktop
+  lg: 1200px,
+  // Extra large screen / wide desktop
+  xl: 1640px
+) !default;
+
+
+$max-tiny: "(max-width: 543px)";  
+$max-small: "(max-width: 768px)"; 
+$max-medium: "(max-width: 960px)";
+$max-large: "(max-width: 1200px)";
+$max-xl: "(max-width: 1640px)";
+
+$min-tiny: "(min-width: 544px)"; 
+$min-small: "(min-width: 769px)"; 
+$min-medium: "(min-width: 961px)";
+$min-large: "(min-width: 1201px)";
+$min-xl: "(min-width: 1641px)";
+
+/* Header
+------------------------------------------*/
+
+$headertop-height: 40px;
+$zindex-navbar : 890;
+
+/* Footer
+------------------------------------------*/
+$footer-height: 400px;
+
+/* Navigation
+------------------------------------------*/
+$navigation-height : 120px;
+$navigation-height-mobile : 60px;
+
+$subpanel-width : 100%;
+$subpanel-padding: 20px;
+
+/* Page content
+------------------------------------------*/
+
+/* Breadcrumb */
+
+$breadcrumb-height : 100px;

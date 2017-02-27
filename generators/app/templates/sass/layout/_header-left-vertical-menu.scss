@@ -1,0 +1,273 @@
+/* HEADER LEFT VERTICAL MENU
+   ========================================================================== */
+  /* BOOTSRAP Nav menu mobile reset */
+
+header {
+	&.header-main {
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		padding: 0;
+		z-index: $zindex-navbar;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e20046+0,eb6138+100 */
+		background: $dominant-color; /* Old browsers */
+		@media #{$min-large} {
+			width: $navigation-width;
+		}
+	}
+}
+#main-nav {
+	padding: 15px;
+	height: 100%;
+	@media #{$max-large} {
+		padding: 0;
+	}
+	.menu-wrapper {
+		display: flex;
+		display: -webkit-flex;
+		flex-direction: column;
+		-webkit-flex-direction: column;
+		justify-content: space-between;
+		-webkit-justify-content: space-between;
+	}
+	.menu-container {
+		height: 100%;
+	}
+	.navbar-collapse {
+		@media #{$max-large} {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+	form {
+		margin-bottom: 15px;
+	}
+	.nav-list {
+		padding-top: 10px;
+		margin-bottom: 15px;
+	}
+	#logo-main {
+		margin-bottom: 15px;
+	}
+	.nav-header-title {
+		color: $white;
+		@include fontSize(17);
+		padding-bottom: 12px;
+		padding-top: 15px;
+		margin-bottom: 0;
+		display: block;
+	}
+	.nav-social_links {
+		margin-top: 20px;
+		.nav-social_links-list {
+			@include fontSize(15,40);
+		}
+		@media #{$max-large} {
+			margin-bottom: 20px;
+		}
+		a {
+			color: $white;
+			border: solid 1px $white;
+			@include border-radius(100%);
+			width: 40px;
+			height: 40px;
+			display: inline-block;
+			text-align: center;
+			&:hover {
+				text-decoration: none;
+				color: $dominant-color;
+				background-color: $white;
+			}
+		}
+		&-list {
+			display: inline;
+		}
+	}
+	.nav-form-inputfield {
+		border: solid 1px transparentize($white, 0.4);
+		@include border-radius(3px);
+		padding: 10px;
+		display: inline-table;
+		width: 100%;
+		input {
+			display: table-cell;
+			@include fontSize(14);
+			color: $white;
+			border: none;
+			margin: 0;
+			padding: 0;
+			background-color: transparent;
+			width: 100%;
+			height: 22px;
+			@include placeholder {
+				color: transparentize($white, 0.2);
+				opacity: 1;
+				padding-top: 2px;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
+		.nav-form-btn {
+			display: table-cell;
+			vertical-align: middle;
+			color: $white;
+			text-align: right;
+		}
+		button {
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			width: 20px;
+			height: 100%;
+			padding-bottom: 0;
+			color: #FFF;
+		}
+	}
+	.nav-list-main {
+		margin: 0;
+		padding: 0;
+		@include fontSize(15);
+		li:not(:last-child) {
+			border-bottom: solid 1px transparentize($white, 0.4);
+		}
+		a {
+			display: block;
+			color: #fff;
+			padding: 10px 30px;
+			padding: 1.5vh 30px;
+			text-transform: uppercase;
+			@media #{$min-large} {
+				margin: 0 -25px;
+			}
+			@media #{$max-large} {
+				padding: 15px 5px;
+			}
+			&:hover {
+				text-decoration: none;
+				background-color: $grey;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
+		li > ul {
+			display: none;
+		}
+		.nav-list-secondary-wrapper {
+			transition: width 0.5s;
+			-webkit-transition: width 0.5s;
+			position: absolute;
+			background-color: $grey;
+			top: 0;
+			bottom: 0;
+			left: $navigation-width;
+			width: 0px;
+			overflow: hidden;
+			@media #{$max-large} {
+				left: 0;
+				position: fixed;
+			}
+			ul {
+				padding: 0 30px;
+			}
+			a {
+
+				text-transform: none;
+				&:hover {
+					color: lighten($dominant-color, 15%);
+				}
+			}
+		}
+		li.nav-list-active {
+			> a {
+				background-color: $grey;
+			}
+		}
+		li.nav-list-back {
+			border: none;
+			margin-bottom: 20px;
+			> a {
+				@extend %icon;
+				@extend .icon-angle-left-l;
+				color: lighten($dominant-color, 15%);
+				&:hover {
+					color: $white;
+				}
+				&::before {
+					color: $white;
+					@include fontSize(15);
+					position: relative;
+					top: 2px;
+					left: -10px;
+				}
+			}
+		}
+	}
+	.nav-burger-banner {
+		height: $burgerMenu-heigth;
+		padding-top: 0;
+		margin-left: $bootstrap-padding;
+		#logo-fongecif-couleur-svg {
+			margin: 10px 0 0 10px;
+			height: 80px;
+			width: auto;
+			@media (max-width: 379px) {
+				margin: 20px 0 0 10px;
+				height: 60px;
+			}
+		}
+	}
+}
+
+.navbar-collapse {
+	height: 100%;
+}
+
+.navbar-default {
+	background-color: inherit;
+	border: none;
+}
+.navbar {
+	margin-bottom: 0;
+}
+
+.navbar-brand {
+	padding-top: 0.25rem;
+}
+
+/* - menu burger */
+button.navbar-toggler {
+    padding: 0.45rem 0.85rem;
+    top: 30px;
+    right: $bootstrap-padding;
+}
+
+.navbar-toggler-icon {
+	background-size: 160%;
+	width: 2rem;
+	height: 2.5rem;
+}
+
+.navbar-toggler .icon-bar:nth-of-type(2) {
+	top: 1px;
+}
+.navbar-toggler .icon-bar:nth-of-type(3) {
+	top: 2px;
+}
+.navbar-toggler .icon-bar {
+	position: relative;
+	transition: all 500ms ease-in-out;
+}
+.navbar-toggler.active .icon-bar:nth-of-type(1) {
+	top: 6px;
+transform: rotate(45deg);
+}
+.navbar-toggler.active .icon-bar:nth-of-type(2) {
+	background-color: transparent;
+}
+.navbar-toggler.active .icon-bar:nth-of-type(3) {
+	top: -6px;
+	transform: rotate(-45deg);
+}

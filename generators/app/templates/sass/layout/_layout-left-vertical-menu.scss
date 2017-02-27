@@ -1,0 +1,33 @@
+/* ==========================================================================
+   LAYOUT VERTICAL MENU LEFT
+   ========================================================================== */
+
+   // Dimensions
+   $navigation-width: 240px;
+   $burgerMenu-heigth: 100px;
+   $toolbar-heigth: 50px;
+
+   /* Contenu principal
+   ----------------------------------------------------------------------------------------*/
+
+body.left-vertical-menu {
+	
+	padding-top: 0;
+}
+	
+
+
+   main {
+   		@media #{$min-large} {
+   			padding-left: $navigation-width;
+   		}
+   		@media #{$max-large} {
+   			margin-top: $burgerMenu-heigth;
+   		}
+   }
+
+#main-footer {
+	@media #{$min-large} {
+		padding-left: $navigation-width;
+	}
+}

@@ -1,0 +1,398 @@
+/* $FORMS
+========================================================================== */
+
+// Config
+$font-size: 1.8rem;
+$field-color: $base-text-color;
+$field-height: 60px;
+$field-vertical-space: 20px;
+$field-border: 1px solid #dadada;
+$field-border-radius: 5px;
+$field-bg: #FFF;
+$required-mark-after-input: false;
+$required-mark-after-label: true;
+
+form.form {
+    position: relative;
+    fieldset {
+      margin: 40px 0;
+      padding: 0;
+      border: none;
+    }
+    .form-group {
+      @include display('flex');
+      margin-bottom: $field-vertical-space;
+      
+
+      @media #{$max-small} {
+        @include flex-direction(column);
+      }
+      &:not(.checkboxes) {
+        justify-content: space-between;
+      }
+    }
+    .form-group--submit {
+      text-align: right;
+    }
+    [class^="col-"] {
+      padding-bottom: 0;
+      @media #{$max-small} {
+        padding-left:0;
+        padding-right:0;
+	   } 
+    }
+    .form-control {
+      @include rem(font-size, $font-size);
+      font-family: $font-stack-common;
+      color: $base-text-color;
+      width: 100%;
+      height: $field-height;
+      padding: 0 15px;
+      box-sizing: border-box;
+      border: $field-border;
+      border-radius: $field-border-radius;
+      background: $field-bg;
+      box-shadow: none;
+      &--rounded {
+        border-radius: 999px;
+      }
+      &:focus {
+        border-color: $dominant-color;
+        outline: none;
+        box-shadow: inset 0px 0px 0px 0px $grey;
+      }
+    } 
+    .input-wrapper {
+      position: relative;
+      @if ($required-mark-after-input) {
+        padding-right: 20px;
+        &.required {
+          position: relative;
+          &:after {
+            content: '*';
+            @include rem(font-size, $font-size);
+            font-weight: bold;
+            display: block;
+            color: $dominant-color;
+            position: absolute;
+            right: 5px;
+            top: 0;
+          }
+        }
+      }
+      &__icon {
+        position: absolute;
+        top: 55%;
+        right: 13px;
+        transform: translatey(-50%);
+      }
+    }
+    textarea {
+      width: 100%;
+      min-height: 200px;
+      padding: 15px !important;
+      resize: none;
+      overflow: auto;
+      outline: none;
+      &:focus {
+        outline: none;
+        border-color: $dominant-color;
+        box-shadow: inset 0px 0px 0px 0px $grey;
+      }
+    }
+    .control-label {
+      position: relative;
+      text-align: left;
+      width: 150px;
+      padding-top: $field-height/3;
+      @media #{$max-small} {
+        width: auto;
+        padding-bottom: $field-vertical-space;
+        padding-left:0;
+        padding-right:0;
+      }
+      @if ($required-mark-after-label) {
+        &.required {
+          &:after {
+            content: ' *';
+          }
+        }
+      }
+    }
+    legend {
+      margin-bottom: 30px;
+      border: none;
+    }
+    .form-group-inline {
+      & > * {
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+    }
+    .date-select {
+      width: 100%;
+      max-width: 130px;
+      min-width: 90px;
+    }
+    .radio {
+      margin-bottom: $field-vertical-space;
+    }
+
+    /*
+    * Reset submit
+    */
+    button.reset {
+      background:none;
+      border:none;
+      font-size:1em;
+    }
+
+} // END .main-form
+
+.etoile{
+  align-self:flex-start;
+  flex-direction:column;
+  justify-content:flex-start; 
+  margin-left: 5px;
+}
+
+/*
+* Select
+*/
+.select-wrap {
+  display: inline-block;
+  min-width: 160px;
+  position: relative;
+  margin: 0;
+  padding-right: 35px;
+  padding-left: 10px;
+  overflow: hidden;
+  @include transition(all, 0.2s, ease-in-out);
+  @extend %icon;
+  @extend .icon-fleche-bottom;
+  &:before {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translatey(-50%);
+    font-size: 14px;
+    z-index: 10;
+    pointer-events: none;
+  }
+}
+.select-wrap select {
+  color: lightgrey;
+  width: 120%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  border: none;
+  box-shadow: none;
+  background: none;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  option.placeholder {
+    display: none;
+  }
+}
+.select-wrap select:focus {
+  outline: none;
+}
+
+/*
+* Date Field
+*/ 
+
+.dates-group {
+  @include display(flex);
+  align-items: center;
+  @media #{$max-small} {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  > span + span {
+    margin-left: 15px;
+  }
+}
+.dates-group-text {
+  color: #6B6978;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.date-field {
+  position: relative;
+  @extend %icon;
+  // @extend .icon-agenda;
+  &:before {
+    height: 60px;
+    @include display(flex);
+    align-items: center;
+    font-size: 27px;
+    position: absolute;
+    right: 20px;
+    line-height: $field-height;
+    pointer-events: none;
+  }
+}
+
+/* Pour jquery ui */
+.ui-datepicker {
+      background: #f2f2f2;
+      border-radius: 3px;
+  .ui-datepicker-next, 
+  .ui-datepicker-prev  {
+    @extend %icon;
+    &:before {
+      @include centerer();
+    }
+  }
+  .ui-datepicker-next {
+    @extend .icon-angle-right;
+  }
+  .ui-datepicker-prev {
+    @extend .icon-angle-left;
+  }
+}
+
+
+/*
+ * Checkboxes
+*/
+.checkbox {
+  /* Base for label styling */
+  /* checkbox aspect */
+  /* checked mark aspect */
+  /* checked mark aspect changes */
+  /* disabled checkbox */
+  /* accessibility */
+
+  + .checkbox {
+    margin-left: 30px;
+  }
+}
+
+.checkbox [type="checkbox"]:not(:checked),
+.checkbox [type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+
+.checkbox [type="checkbox"]:not(:checked) + label,
+.checkbox [type="checkbox"]:checked + label {
+  line-height: 20px;
+  position: relative;
+  padding-left: 35px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  cursor: pointer;
+}
+
+.checkbox [type="checkbox"]:not(:checked) + label:before,
+.checkbox [type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid $grey;
+  background: white;
+  border-radius: 3px;
+}
+
+.checkbox [type="checkbox"]:not(:checked) + label:after,
+.checkbox [type="checkbox"]:checked + label:after {
+  content: '';
+  background: url("../images/icone-checked.svg") no-repeat;
+  position: absolute;
+  top: 12px;
+  left: 7px;
+  color: $dominant-color;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  width: 14px;
+  height: 10px;
+}
+
+.checkbox [type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+
+.checkbox [type="checkbox"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.checkbox [type="checkbox"]:disabled:not(:checked) + label:before,
+.checkbox [type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+
+.checkbox [type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+
+.checkbox [type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+
+.checkbox--transparent {
+    [type="checkbox"]:not(:checked) + label:before,
+    [type="checkbox"]:checked + label:before {
+      background: transparent;  
+    }
+    [type="checkbox"]:not(:checked) + label:after,
+    [type="checkbox"]:checked + label:after {
+      background: url("../images/icone-checked-white.svg") no-repeat;
+    }
+}
+
+
+/* CUSTOM FORMS
+----------------------------------------------------------------------------------------*/
+
+/* FORM RECHERCHE
+-------------------------------------------*/
+
+form.searchform {
+  button[type="submit"] {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    @include fontSize(22, 22);
+    color: $dominant-color;
+  }
+}
+
+/* FORM NEWSLETTER
+-------------------------------------------*/
+
+.form--newsletter {
+      margin-bottom: 40px;
+      input.form-control {
+        border-radius: 999px;
+      }
+}
+
+form .form--newsletter__submit {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+/* Pour intégration à contact form 7 sur wordpress */
+.wpcf7-form-control-wrap {
+  width: 100%;
+}

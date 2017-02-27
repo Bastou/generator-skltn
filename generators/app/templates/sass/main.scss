@@ -1,0 +1,147 @@
+/**
+ * Description:  Styles css pour <%= appname %>
+ * Version: 1.0.0
+ * Created: <%= date %>
+ * Last update: <%= date %>
+ * Author: <%= authorname %> <<%= authoremail %>>
+ *
+ * <% var i=0;%>
+ * Summary:
+ *   1. VENDORS
+ *	- 1.1. BOOTSTRAP
+ *	2. BASE
+ *	- 1.1. RESET
+ *	- 1.2. TYPOGRAPHY
+ *	- 1.3. HELPERS
+ *	3. LAYOUT
+ *    - 3.1. LAYOUT
+ *    - 3.2. GRID
+ *    - 3.3. BLOCKS
+ *    - 3.4. HEADER
+ *    - 3.5. FORMS
+ *    - 3.6. FOOTER
+ *	4. COMPONENTS
+ *    - 4.<%= ++i %>. NAVIGATION
+ <% if (includeAccordion) { %>
+ *    - 4.<%= ++i %>. ACCORDION
+ <% } %>
+ <% if (includeTabs) { %>
+ *    - 4.<%= ++i %>. TABS
+ <% } %>
+ *    - 4.<%= ++i %>. ICONS
+ <% if (includeSlider) { %>
+ *    - 4.<%= ++i %>. CAROUSEL
+ <% } %>
+ *    - 4.<%= ++i %>. BUTTONS
+ *    - 4.<%= ++i %>. DROPDOWN
+ *    - 4.<%= ++i %>. ANIMATEMIN
+ *    - 4.<%= ++i %>. LISTE
+ *    - 4.<%= ++i %>. PAGINATION
+ <% if (includeGallery) { %>
+ *    - 4.<%= ++i %>. IMAGE GALLERY
+ <% } %>
+ <% if (includeFilters) { %>
+ *    - 4.<%= ++i %>. FILTERS
+ <% } %>
+ *	5. PAGES <% i=0;%>
+ *    - 5.<%= ++i %>. ACCUEIL
+ *    - 5.<%= ++i %>. SITEMAP
+ <% if (includeContact) { %>
+  *   - 5.<%= ++i %>. CONTACT
+<% } %>
+ */
+
+ /*
+  * Note: Use $section-name to search a specific section
+  *
+  *
+  *
+  */
+
+
+
+
+
+// // // Sass utilities
+@import "helpers/_variables.scss";//nom complet du fichier car erreur sass (possibles collision avec un autre fichier) [idem pr les autres ds le mm cas]
+@import "helpers/functions";
+@import "helpers/mixins";
+@import "bourbon/bourbon";
+@import "components/animation";
+
+/* ==========================================================================
+   $VENDORS
+   ========================================================================== */
+
+// // Vendors and external stylesheets
+@import "vendors/bootstrap/bootstrap";
+
+/* ==========================================================================
+   $BASE
+   ========================================================================== */
+
+// Base stuff
+@import "base/_reset.scss";
+@import "base/_typography.scss";
+@import "helpers/helpers";
+
+/* ==========================================================================
+   $LAYOUT
+   ========================================================================== */
+
+// // Layout related stylesheets
+@import "layout/layout";
+@import "layout/grid";
+@import "layout/_blocs.scss"; 
+
+<% if (!hasVerticalMenu) { %>
+@import "layout/header";
+<% } %>
+@import "layout/forms";
+@import "layout/_footer.scss";
+
+// Left vertical menu
+<% if (hasVerticalMenu) { %>
+@import "layout/layout-left-vertical-menu";
+@import "layout/header-left-vertical-menu";
+<% } %>
+
+
+
+/* ==========================================================================
+   $COMPONENTS
+   ========================================================================== */
+
+// // Components and modules
+@import "components/navigation";
+<% if (includeAccordion) { %>
+@import "components/accordion";
+<% } %>
+<% if (includeTabs) { %>
+@import "components/tabs";
+<% } %>
+@import "components/icons";
+<% if (includeSlider) { %>
+@import "components/carousel";
+<% } %>
+@import "components/_buttons.scss";
+@import "components/dropdown";
+@import "components/pagination";
+<% if (includeGallery) { %>
+@import "components/image-gallery";
+<% } %>
+<% if (includeFilters) { %>
+@import "components/filters";
+<% } %>
+
+
+/* ==========================================================================
+   $PAGES
+   ========================================================================== */
+
+// // Page-specific stylesheets
+@import "pages/accueil";
+@import "pages/sitemap";
+<% if (includeContact) { %>
+@import "pages/contact";
+<% } %>

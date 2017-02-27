@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Liste des pages</title>
+
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+
+		<style type="text/css" media="screen">
+
+			body{
+				padding-top: 30px;
+				background: #f6f6f6;
+			}
+
+			img{
+				margin : 0 auto;
+				display : block;
+			}
+
+			h2 {
+				color: #fff;
+				font-size: 25px;
+				line-height: 26px;
+				font-family: 'Montserrat', sans-serif;
+			}
+
+			.bloc-ol {
+				margin: 0 auto;
+				padding: 20px;
+				width : 900px;
+				background: #fff;
+				border-radius: 30px;
+				margin-bottom: 40px;
+			}
+			ol {
+				list-style: none;
+				list-style: outside outside;
+				counter-reset: ol-counter;
+				padding: 0;
+				margin: 0;			
+			}
+			ol + ol {
+				margin-top: 20px;
+			}
+			li{
+				display : inline-block;
+			    margin-bottom: 10px;
+			    width: 440px;
+			    text-align: left;
+			}
+			li a{
+				display: block;
+				color: #ec2235;
+				font-size: 18px;
+				line-height: 26px;
+				font-family: 'Lato', sans-serif;
+				text-decoration: none;
+				outline: none;
+				padding: 0 30px;
+			}
+
+			li a:hover {
+				background: #ec2235;
+				color: #fff;
+				-webkit-transition: background .2s;
+				   -moz-transition: background .2s;
+				    -ms-transition: background .2s;
+				     -o-transition: background .2s;
+				        transition: background .2s;
+			}
+			li a:hover:before{
+				color : #fff;
+			}
+			li a:before{
+				content: counter(ol-counter) ". ";
+    			counter-increment: ol-counter;
+				position: relative;
+				color : #4d4d4d;
+				font-size: 18px;
+				top: 0px;
+				left : -3px;
+			}
+
+			.box > .icon {
+			text-align: center;
+			position: relative;
+			}
+			.box > .icon > .image {
+			position: relative;
+			z-index: 2;
+			margin: auto;
+			width: 400px;
+			height: 150px;
+			border: 12px solid #f6f6f6;
+			line-height: 150px;
+			border-radius: 150px;
+			background: #fff;
+			vertical-align: middle;
+			}
+
+			.box > .icon > .image img {
+
+				-webkit-transform: scale(1);
+				   -moz-transform: scale(1);
+				    -ms-transform: scale(1);
+				     -o-transform: scale(1);
+				        transform: scale(1);
+
+					-webkit-transition: all .8s;
+					   -moz-transition: all .8s;
+					    -ms-transition: all .8s;
+					     -o-transition: all .8s;
+					        transition: all .8s;
+			}
+
+			.box > .icon > .image:hover img {
+				/* -webkit-transform: scale(1.2);
+				   -moz-transform: scale(1.2);
+				    -ms-transform: scale(1.2);
+				     -o-transform: scale(1.2);
+				        transform: scale(1.2); */
+
+			}
+			.box > .icon > .image img {
+				display: inline-block;
+				vertical-align: middle;
+				height: 60px;
+			}
+
+			.box > .icon > .info {
+				margin-top: -62px;
+				background: #8d9aa1;
+				border: 1px solid #8d9aa1;
+				padding: 90px 0 40px 0;
+			}
+			.box .space {
+				height: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="box">							
+			<div class="icon">
+				<div class="image"><img src="images/logo.png" alt=""></div>
+				<div class="info">
+					<div class="bloc-ol">
+						<ol>
+							<li><a href="homepage.php" target="_blank" title="">Accueil</a></li>
+							<li><a href="styleguide.php" target="_blank" title="">Styleguide</a></li>
+							<li><a href="model.php" target="_blank" title="">Model</a></li>
+							<% if (includeNews) { %>
+							<li><a href="actualites.php" target="_blank" title="">Actualités</a></li>
+							<li><a href="actualites-detail.php" target="_blank" title="">Actualités Détail</a></li>
+							<% } %>
+							<% if (includeContact) { %>
+							<li><a href="contact.php" target="_blank" title="">Contact</a></li>
+							<% } %>
+							<li><a href="resultats-recherche.php" target="_blank" title="">Résultats recherche</a></li>
+							<li><a href="sitemap.php" target="_blank" title="">Plan du site</a></li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<div class="space"></div>
+		</div>
+
+	</body>
+
+</html>

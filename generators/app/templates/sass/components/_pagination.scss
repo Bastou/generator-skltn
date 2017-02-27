@@ -1,0 +1,30 @@
+/* $PAGINATION
+   ========================================================================== */
+
+
+   .pagination {
+   	display: block;
+   	@extend .center;
+   	.page-numbers {
+   		@extend .btn-ring;
+   		@extend .btn-ring--border;
+   		color: $base-color;
+   		margin-left: 10px;
+   		font-weight: bold;
+   		&.current {
+   			color: #FFF;
+   			border-color: $dominant-color;
+   			background-color: $dominant-color;
+   			pointer-events:none;
+   		}
+   	}
+   	.dots {
+   		color: $base-color;
+   		margin-left: 10px;
+   		font-weight: bold;
+   		border: none;
+   		vertical-align: bottom;
+   		line-height: 40px;
+   		width: 20px;
+   	}
+   }

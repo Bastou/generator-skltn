@@ -1,0 +1,101 @@
+    /* $ACCUEIL
+========================================================================== */
+
+// # TODO: mettre a jour pour nouvelle page d'accueil
+
+/* SLIDER
+----------------------------------------------------------------------------------------*/
+
+#home-slider {
+    padding-bottom: 32%;
+    @media #{$max-small} {
+        padding-bottom: 64%;
+    }
+    background: #cccccc;
+    .swiper-wrapper {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+    }
+    .swiper-slide {
+        overflow: hidden;
+
+    }
+    .swiper-slide__image {
+        color: #FFF;
+        @extend .absolute-fit;
+        background-position: center; 
+        &:after {
+            content: "";
+            @extend .absolute-fit;
+        }
+    }
+    .title-slider-wrapper {
+        @extend .absolute-fit;
+    }
+    .title-slider-inner {
+        @include centerer('vertical');
+        left: 15%;
+        max-width: 500px;
+        > a.btn {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 30px;
+            font-size: 14px;
+        }
+    }
+    .pagination {
+        @include centerer('horizontal');
+        bottom: 10px;
+        z-index: 1;
+    }
+    .swiper-button-prev, 
+    .swiper-button-next {
+       color: #FFF;
+    }
+}
+
+/* Bourses active
+----------------------------------------------------------------------------------------*/
+
+.bg-bourses-active {
+    background: url('../images/fond-bourses-actives.jpg') no-repeat;
+    background-size: cover;
+}
+
+/* Concours eloquence
+----------------------------------------------------------------------------------------*/
+
+.bg-concours-eloquence {
+    background: #1e3b5c;
+}
+
+/* Home actu
+----------------------------------------------------------------------------------------*/
+
+.home-actu-slider-pagination {
+    margin-right: 10px,
+}
+
+/* Social Tab
+----------------------------------------------------------------------------------------*/
+
+.ui-tabs-tab:not(.ui-tabs-active) .btn-ring {
+    background-color: transparent;
+    border-color: #ccc;
+    color: $grey; 
+}
+
+/* Twitter 
+------------------------------------------*/
+
+.twitter-item {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $grey;
+    p {
+        @include rem('line-height', 22px);
+        margin-bottom: 10px;
+    }
+}

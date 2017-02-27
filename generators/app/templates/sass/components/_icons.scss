@@ -1,0 +1,224 @@
+/* $ICONS
+   ========================================================================== */
+
+
+@charset "UTF-8";
+
+@font-face {
+  font-family: "skltn";
+  src:url("../fonts/skltn.eot");
+  src:url("../fonts/skltn.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/skltn.woff") format("woff"),
+    url("../fonts/skltn.ttf") format("truetype"),
+    url("../fonts/skltn.svg#skltn") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "skltn" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  // line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+%icon:before,
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "skltn" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  // line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-angle-down:before {
+  content: "\61";
+}
+.icon-angle-left:before {
+  content: "\62";
+}
+.icon-angle-right:before {
+  content: "\63";
+}
+.icon-angle-left-l:before {
+  content: "\64";
+}
+.icon-angle-right-l:before {
+  content: "\65";
+}
+.icon-loupe:before {
+  content: "\66";
+}
+.icon-loupe-annuaire:before {
+  content: "\67";
+}
+.icon-loupe-big:before {
+  content: "\68";
+}
+.icon-mail:before {
+  content: "\69";
+}
+.icon-print:before {
+  content: "\6a";
+}
+.icon-share:before {
+  content: "\6b";
+}
+.icon-valid:before {
+  content: "\6c";
+}
+.icon-close:before {
+  content: "\6d";
+}
+.icon-close-l:before {
+  content: "\6f";
+}
+.icon-plus:before {
+  content: "\6e";
+}
+.icon-twitter:before {
+  content: "\70";
+}
+.icon-fb:before {
+  content: "\71";
+}
+.icon-play:before {
+  content: "\72";
+}
+.icon-rss-1:before {
+  content: "\73";
+}
+.icon-gplus:before {
+  content: "\74";
+}
+.icon-youtube:before {
+  content: "\75";
+}
+.icon-hamburger:before {
+  content: "\76";
+}
+.icon-pdf:before {
+  content: "\77";
+}
+.icon-word:before {
+  content: "\78";
+}
+.icon-angellist:before {
+  content: "\79";
+}
+.icon-thumbs-o-up:before {
+  content: "\7a";
+}
+.icon-pin:before {
+  content: "\41";
+}
+.icon-linkedin-alt:before {
+  content: "\42";
+}
+.icon-linkedin:before {
+  content: "\43";
+}
+.icon-facebook-alt:before {
+  content: "\44";
+}
+.icon-dropbox:before {
+  content: "\45";
+}
+.icon-skype:before {
+  content: "\46";
+}
+.icon-youtube-alt:before {
+  content: "\47";
+}
+.icon-apple:before {
+  content: "\48";
+}
+.icon-behance:before {
+  content: "\49";
+}
+.icon-blip:before {
+  content: "\4a";
+}
+.icon-dribbble:before {
+  content: "\4b";
+}
+.icon-facebook-places:before {
+  content: "\4c";
+}
+.icon-google:before {
+  content: "\4d";
+}
+.icon-rss:before {
+  content: "\4e";
+}
+.icon-soundcloud:before {
+  content: "\4f";
+}
+.icon-yahoo:before {
+  content: "\50";
+}
+.icon-steam:before {
+  content: "\51";
+}
+.icon-angle-up:before {
+  content: "\52";
+}
+
+
+
+/* Icon helpers
+------------------------------------------*/
+
+.icon-x05 {
+  font-size: 0.5rem;
+}
+
+.icon-x06 {
+  font-size: 0.6em;
+}
+
+.icon-x2 {
+  font-size: 2rem;
+}
+
+.icon-x3 {
+  font-size: 3rem;
+}
+
+.icon-x4 {
+  font-size: 4rem;
+}
+
+.icon-x6 {
+  @include rem(font-size, 6rem);
+} 
+
+.icon-fleche {
+  @extend .icon-angle-right;
+}
+
+.icon-fleche-bottom,
+.icon-angle-bottom
+ {
+  @extend .icon-angle-down;
+}
+
+.icon-cross {
+  @extend .icon-close;
+}
+
+.icon-centre{
+  display:flex;
+  align-items:center;
+}

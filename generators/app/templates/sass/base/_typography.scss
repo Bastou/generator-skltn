@@ -1,0 +1,709 @@
+/* $TYPOGRAPHY
+========================================================================== */
+
+@import '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,600,700,700i';
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: $font-stack-common;
+	@include rem('font-size', $base-font-size);
+	color: $base-text-color;
+	font-weight: $light;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+p {
+	line-height: $text-line-height;
+	margin: 0 0 $paragraph-spacing;
+	&:empty {
+		margin:0;
+	}
+}
+
+.p-like {
+	@extend p;
+	font-size: $base-font-size;
+	font-family: $font-stack-common;
+	color: $base-text-color;
+	text-transform: inherit;
+}
+
+input,
+label,
+select,
+button,
+textarea {
+	font-family: $font-stack-common;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font-stack-headings;
+	font-weight: $medium;
+	a {
+		color: inherit;
+	}
+}
+
+
+a {
+	color: $dominant-color;
+	text-decoration: none;
+	@include base-transition();
+	&:hover {
+		color: darken($dominant-color, 10%);
+		text-decoration: none;
+	}
+	&:focus {
+		color: darken($dominant-color, 15%);
+		text-decoration: none;
+	}
+}
+
+address {
+	margin: 0 0 $paragraph-spacing;
+}
+
+/* LES TITRES
+----------------------------------------------------------------------------------------*/
+
+.titre-page,
+.titre-section {
+	color: $dominant-color;
+}
+
+.titre-page {
+	@include fontSize(42,40);
+	color: $base-color;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 80px;
+	@media #{$max-small} {
+		margin-bottom: 30px;
+		@include fontSize(30,40);
+	}
+}
+
+.titre-slider {
+	color: #FFF;
+	@include rem('font-size', $titre-slide-size);
+	@include rem('line-height', $titre-slide-size);
+	font-weight: $bold;
+
+	.font-stack-trirong {
+		font-weight: 400;
+	}
+	@media #{$max-medium} {
+		@include fontSize(30,40);
+	}
+}
+
+.titre-section {
+	@include rem('font-size', $section-size);
+	font-weight: 700;
+	margin: 80px auto 40px auto;
+	.font-stack-trirong {
+		color: $base-color;
+		font-weight: 400;
+	}
+}
+
+.titre-section2 {
+	@include rem('font-size', $section-size);
+	font-weight: 700;
+	margin: 80px 0 30px 0;
+	.font-stack-trirong {
+		color: $dominant-color;
+		font-weight: 400;
+	}
+}
+
+.titre-paragraphe {
+	display: block;
+	@include fontSize(26,26);
+	font-size: 26px;
+	font-weight: 700;	
+	padding-bottom: 20px;
+	margin-bottom: 25px;
+	border-bottom: 3px solid $dominant-color;
+	.form & {
+		padding-bottom: 15px;
+		margin-bottom: 40px;
+		border-color: rgba(#FFF, 0.2);
+	}
+}
+
+.titre-article {
+	@include fontSize(38, 38);
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+.titre-article--small {
+	color: $base-black;
+	@include fontSize(20,28);
+	margin-bottom: 10px;
+}
+
+.titre-bloc {
+	@include fontSize(22,24);
+	font-weight: 600;
+	margin-bottom: 20px;
+	padding-bottom: 25px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+// Titre bloc sans séparateur
+.titre-bloc2 {
+	@include fontSize(22,26);
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+.titre-bloc-card {
+    @extend .font-stack-trirong;
+    @include fontSize(22,26);
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.titre-footer {
+	color: $dominant-color;
+	@include fontSize(22,26);
+	font-weight: 700;
+}
+
+// Pour formulaire
+.titre-etape {
+	display: block;
+	position: relative;
+	font-weight: 700;
+	color: $grey;
+	margin-bottom: 30px;
+	&:after {
+		@include line('false', $grey, 100%, 1px);
+	}
+}
+
+
+/* CONTENUS TEXTES
+----------------------------------------------------------------------------------------*/
+
+.texte-chapeau {
+	@include fontSize(22, 30);
+	font-weight: 400;
+}
+
+.texte-en-avant {
+	    color: $dominant-color;
+	    @include fontSize(36,46);
+	    margin-bottom: 50px;
+}
+
+.texte-info {
+	color: $base-black;
+	@include fontSize(16,16);
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+.text-categorie {
+	color: $dominant-color;
+	@include fontSize(16,30);
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.text-date {
+	margin-bottom: 10px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.text-legende{
+	@include fontSize(15,28);
+	font-weight: 300;	
+	font-style:italic;
+	color:#999;
+}
+.text-auteur {
+	
+	font-size: 20px;
+	@include fontSize(20, 16);
+	font-weight: 400;
+}
+.text-role {
+	@include fontSize(13, 24);
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.text-info-bloc-card {
+	color: $dominant-color;
+	@include fontSize(14);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+} 
+.p-smaller {
+	@include fontSize(16,26);
+}
+
+small {
+	@include fontSize(12,20);
+}
+
+.p-bigger {
+	@include rem(font-size, $p-bigger-size);
+	font-weight: 300;
+}
+.p-fatter{
+	font-weight: 800;
+}
+
+.p-bigger-l {
+	font-size: 1.2em !important;
+}
+
+.quote {
+	@include fontSize(16, 26);
+	display: block;
+	position: relative;
+	padding: 30px 0 20px 0;
+	&:before, &:after {
+		content: '\201C';
+		font-family: 'Poppins', serif;
+		@include rem(font-size, 7rem);
+		font-weight: 400;
+		position: absolute;
+	}
+	&:before {
+		top: 0px;
+		left: 0px;
+	}
+	&:after {
+		right: 0px;
+		bottom: 0px;
+		transform: rotate(180deg);
+	}
+}
+
+.label {
+	color: $dominant-color;
+	@include fontSize(16, 16);
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+/* Text formaters
+----------------------------------------------------------------------------------------*/
+
+/* colors */
+
+.base-color {
+	color: $base-text-color;
+}
+
+.dominant-color {
+	color: $dominant-color;
+}
+
+.color1 {
+	color: $dominant-color;
+}
+
+.base-black {
+	color: $base-black;
+}
+
+.red{
+	color: $dominant-color;
+}
+
+.white{
+	color: #FFF !important; 
+}
+
+
+
+/* Font weights */
+
+.light {
+	font-weight: $light;
+}
+
+.thin {
+	font-weight: $thin;
+}
+
+.normal {
+	font-weight: $normal;
+}
+
+.medium {
+	font-weight: $medium;
+}
+
+.semi-bold {
+	font-weight: $semi-bold;
+}
+
+.bold, strong {
+	font-weight: $bold;
+}
+
+.extra-bold {
+	font-weight: $extra-bold;
+}
+
+
+/* Text transform */
+
+.uppercase, .majuscule {
+	text-transform: uppercase;
+}
+
+.lowercase {
+	text-transform: lowercase;
+}
+
+.em {
+	font-family: Georgia, Cambria, serif;
+	font-style: italic;
+	color: $dominant-color;
+}
+
+.exergue {
+	color: $dominant-color;
+	font-weight: $bold;
+}
+
+.pre {
+	color: #FFF;
+	font-family: $font-stack-headings;
+	font-size: 15px;
+}
+
+hr {
+	margin: 20px 0 40px;
+}
+
+.underline {
+	&:after {
+		@include line('false', $base-black, 30px);
+	}
+}
+
+.red-underline {
+	position: relative;
+	&:after {
+		@include line('false', $dominant-color, 100%);
+		z-index: -1;
+		height: 7px;
+		top: 72%;
+	}
+}
+
+.underline-dominant-color {
+	border-bottom: 1px solid $dominant-color;
+}
+
+.link-externe{
+	border-bottom: dotted 1px $dominant-color;
+}
+
+/* font family */
+.font-stack-headings {
+	font-family: $font-stack-headings ;	
+}
+
+
+/* TYPO PAGES / COMPONENTS
+========================================================================== */
+
+
+/* HEADER
+----------------------------------------------------------------------------------------*/
+
+/* Nav
+------------------------------------------*/
+
+.primary-nav {
+	color: #FFF;
+	> li {
+		a {
+			position: relative;
+			@include rem('font-size', 2.4rem);
+			font-family: $font-stack-common;
+			color: $base-color;
+			font-weight: 300;
+			@include base-transition();
+		}
+		&.active > a, & a:hover {
+			color: $dominant-color;
+			> span {
+				color: $dominant-color;
+			}
+		}		
+		&:hover, &:focus {
+			> a {
+				color : $dominant-color;
+
+				color: $dominant-color;
+				border-color: $base-color;
+			}
+		}
+	}
+	.dropdown-menu {
+		li {
+			a {
+				@include rem('font-size', 1.8rem);
+				font-weight: 600;
+				color: #FFF;
+			}
+		}
+	}
+}
+
+
+/* Bandeau
+----------------------------------------------------------------------------------------*/
+
+.banner__text span {
+	display: block;
+}
+
+.banner__text__title {
+	color: #FFF;
+	@include fontSize(100,90);
+	font-weight: 700;
+	@media #{$max-medium} {
+		@include fontSize(40);
+	}
+}
+
+.banner__text__subtitle {
+	@include fontSize(60,60);
+	color: #ffffff;
+	margin-bottom: 15px;
+	@include text-shadow(0px, 3px, 5px, rgba(0,0,0,0.3));
+	@media #{$max-small} {
+		@include fontSize(30);
+	}
+}
+
+
+/* Breadcrumb
+----------------------------------------------------------------------------------------*/
+
+.breadcrumb {
+	text-align: left;
+	max-width: 100%;
+	overflow:hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-bottom: 40px;
+	header & {
+		line-height: $breadcrumb-height;
+	}
+	a, span {
+		color: $base-text-color;
+		@include fontSize(14,20);
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	.breadcrumb_last, .separator, a:not(:first-child) {
+		margin-left: 20px;
+		@media #{$max-small} {
+			margin-left: 5px;
+		}
+
+	}
+	.breadcrumb_last, .separator{
+		color: $dominant-color;
+	}
+	.separator {
+		font-family: "consolas", sans-serif;
+	}
+}
+
+/* FOOTER
+----------------------------------------------------------------------------------------*/
+
+footer {
+	font-family: $font-stack-common;
+	@include fontSize(16,26);
+	a {
+		&:hover {
+			color: $dominant-color;
+		}
+	}
+}
+
+.footer__nav {
+	a {
+		color: $base-text-color;
+	}
+}
+
+/* PAGE CONTENT
+----------------------------------------------------------------------------------------*/
+
+/* LISTES
+------------------------------------------*/
+
+
+// Inline turns list items into inline-block
+.list-inline {
+	@include list-unstyled;
+	margin-left: -5px;
+
+	> li {
+		display: inline-block;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
+ul[class^="liste"], 
+ol[class^="liste"],
+.liste,
+.content ul{
+	padding-left: 0;
+	margin-bottom: $paragraph-spacing;
+
+	>li {
+		padding: 5px 0 5px 1em;
+		text-indent: -.7em;
+		line-height: $text-line-height;
+		&:before {
+			content: "\002022";
+			font-family: "consolas", sans-serif;
+			font-weight: $bold;
+			position: relative;
+			top: -1px;
+			padding-right:7px;
+		}
+		a:hover {
+			color: $dominant-color;
+			text-decoration: underline;
+		}
+		ul {
+			margin-left: 20px;
+		}
+	}
+	&.liste--border {
+		>li {
+			padding: 10px 0 10px 1em;
+			&:not(:first-child) {
+				border-top: 1px solid $grey2;
+			}
+		}
+	}
+	
+	//>Plus despace entre les item
+	&.liste--aere{
+		line-height:21px;
+		>li{
+			//padding-top:11px;
+			//padding-bottom:11px;
+		}
+	}
+}
+
+ul.liste-puce,
+.content ul {
+	>li {
+		&:before {
+			content: "\002022";
+			color: $dominant-color;
+		}
+	}
+}
+
+
+ul.liste-fleche,
+.content ul.liste-fleche {
+	>li {
+		&:before {
+			content: ">";
+			color: $dominant-color;
+		}
+	}
+}
+
+ul.liste-item-espace {
+	>li {
+		margin-bottom: 20px;
+	} 
+}
+
+ul.liste-border {
+	@extend .liste;
+	>li {
+		@include fontSize(15);
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid $light-grey;
+		&:first-child {
+			border-top: 1px solid $light-grey;
+		}
+		&:before {
+			color: $dominant-color;
+		}
+		a {
+			color: $base-color;
+		}
+	}
+}
+
+
+
+// [converter] extracted as `@mixin list-unstyled` for libsass compatibility
+ul.list-unstyled {
+	@include list-unstyled;
+	li {
+		padding-left: 0 !important;
+		text-indent: 0 !important;
+		&:before {
+			content: "";
+		}
+	}
+}
+
+ol.liste-number {
+	counter-reset: numerotation;
+	
+	>li {
+    	counter-increment: numerotation; /* on incrémente le compteur à chaque nouveau li */
+
+		&:before {
+			content: counter(numerotation)'.'; /* on affiche le compteur */
+			color: $dominant-color;
+		}
+	}
+}
+
+ol.listing-recherche {
+	> li {
+		list-style-type: decimal;
+		@extend .titre-article--small;
+		color: $base-text-color;
+		font-weight: $semi-bold;
+		.breadcrumb {
+			margin-bottom: 10px;
+		}
+		p {
+			@extend .p-like;
+			font-weight: 300;
+		}
+	}
+}

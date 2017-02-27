@@ -1,0 +1,44 @@
+/* $ACCORDION
+   ========================================================================== */
+
+/*
+   * Accordion from jquery ui :
+   * https://jqueryui.com/accordion/
+   */
+
+.accordion {
+    h4 {
+        margin: 5px 0 0;
+        font-weight: normal;
+        text-align: center;
+        color: $white;
+        background: $base-color;
+        outline: 0;
+        cursor: pointer;
+        border: none !important;
+        &:hover {
+            background: lighten($base-color, 15%);
+        }
+    }
+    div.ui-accordion-content {
+        position: relative;
+        margin: 0;
+        padding: 15px;
+        color: $white;
+        background: $grey;
+        overflow: visible;
+        &:after {
+            position: absolute;
+            top: -27px;
+            left: 45px;
+            display: block;
+            width: 0;
+            height: 0;
+            margin-left: -20px;
+            border-width: 15px;
+            border-style: solid;
+            border-color: transparent transparent $grey transparent;
+            content: '';
+        }
+    }
+}

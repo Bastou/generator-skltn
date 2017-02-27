@@ -1,0 +1,35 @@
+/* $DROPDOWN
+========================================================================== */
+
+/* Horizontal Dropdown
+----------------------------------------------------------------------------------------*/
+
+
+.dropdown-menu {
+	border-radius: 0;
+	border: none;
+	@media #{$min-medium} {
+		left: -40px;
+	}
+}
+
+.dropdown-toggle::after {
+	margin-left: 0.5rem;
+	@media #{$max-large} {
+		display: none;
+	}	
+}
+
+.dropdown-submenu {
+	@media #{$min-large} {
+		position: relative;
+	}	
+}
+
+.dropdown-submenu .dropdown-menu {
+	@media #{$min-large} {
+		top: -35px;
+		left: 100%;
+		margin-top: -1px;
+	}
+}

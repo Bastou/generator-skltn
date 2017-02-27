@@ -1,0 +1,116 @@
+/* $IMAGE GALLERY
+========================================================================== */
+
+/*
+* Used With fancy box plugin
+*
+*
+*/
+
+.fancybox-overlay {
+	background-color: rgba(#000, 0.88);
+}
+
+.fancybox-skin {
+	padding: 0 !important;
+	border-radius: 0;
+}
+
+.fancybox-close {
+	@extend .btn-ring;
+	@extend %icon;
+	@extend .icon-cross;
+	position: fixed;
+	top: 50px;
+	right: 50px;
+	color: #FFF;
+	border-color: $dominant-color;
+	width: 60px;
+	height: 60px;
+	line-height: 59px;
+	font-size: 20px;
+	@media #{$max-small} {
+		top: 30px;
+		right: 30px;
+	}
+}
+
+#fancybox-thumbs {
+	padding-top: 2px;
+	&.bottom {
+		bottom: 40px;
+	}
+	ul li {
+		border:none;
+		&.active {
+			border:none;
+			@include base-transition();
+		}
+	}
+}
+
+.fancybox-nav {
+	position: fixed;
+	width: 30%;
+	background: none;
+	> span {
+		@extend %icon;
+		font-size: 30px;
+		color: #FFF;
+		visibility: visible;
+		width: 70px;
+		height: 60px;
+		@include base-transition();
+	}
+	&:hover {
+		> span {
+			@extend .text-shine;
+		}
+	}
+}
+.fancybox-prev {
+	> span {
+		@extend .icon-angle-left;
+		background: none !important;
+	}
+}
+.fancybox-next {
+	> span {
+		@extend .icon-angle-right;
+		background: none !important;
+	}
+}
+.fancybox-title-float-wrap {
+	@media #{$max-small} {
+		bottom: 0;
+		right: initial;
+		width: 100%;
+		margin-bottom: -100px;
+	}
+}
+.fancybox-title-float-wrap .child {
+	position: relative;
+	left: 0;
+	bottom: 28px;
+	z-index: 8050;
+	max-width: 600px;
+	color: #FFF;
+	font-family: $font-stack-common;
+	@include fontSize(18,18);
+	font-weight: 300;
+	text-shadow:none;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border-radius: 0;
+	color: #FFF;
+	opacity: 0.88;
+	height: 60px;
+	line-height: 60px;
+	padding: 0 25px;
+	margin-right: -100px;
+	@media #{$max-small} {
+		margin-right: 0;
+		max-width: 100%;
+		@include fontSize(14,60);
+	}
+}

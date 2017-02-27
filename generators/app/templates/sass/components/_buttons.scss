@@ -1,0 +1,248 @@
+/* $BUTTONS
+========================================================================== */
+
+// Config 
+//----------------------------------------------------------------------------------------//
+// BTN STANDARD
+$btn-standard_txt-color: #FFF;
+$btn-standard_txt-size: 1.6rem;
+$btn-standard_txt-weight: $bold;
+$btn-standard_txt-transform: inherit;
+$btn-standard_padding: 0 50px 0 30px;;
+$btn-standard_border-radius: 999px;
+$btn-standard_border: 1px solid transparent;
+$btn-standard_bg-color: $dominant-color;
+$btn-standard_height: 50px;
+$btn-standard_icon: icon-angle-right;
+$btn-standard_icon-position: right;
+// BTN RING 
+$btn-ring_size: 35px;
+$btn-ring_font-size: 14px;
+$btn-ring_color: $base-text-color;
+$btn-ring_border-color: rgba(255, 255, 255, 0.3);
+$btn-ring_border-width: 2px;
+$btn-ring_color-hover: $dominant-color;
+// BTN NOTEXT
+$btn_size: 60px;
+// BTN ROUNDED
+$btn-rounded_size: 80px;
+// BTN DROPDOWN
+$btn-dropdown_size: 60px;
+// BTN BORDERED
+$btn-bordered_size: 36px;
+$btn-bordered_padding: 0 10px;
+$btn-bordered_border: 1px solid rgba(255, 255, 255, 0.3);
+
+// Buttons 
+//----------------------------------------------------------------------------------------//
+.btn {
+    color: $btn-standard_txt-color;
+    @include rem('font-size', $btn-standard_txt-size);
+    font-weight: $btn-standard_txt-weight;
+    text-transform: $btn-standard_txt-transform;
+    position: relative;
+    height: $btn-standard_height;
+    line-height: $btn-standard_height - 3px;
+    background-color: $btn-standard_bg-color;
+    border: $btn-standard_border;
+    border-radius: $btn-standard_border-radius;
+    padding: $btn-standard_padding;
+    @include base-transition();
+    @extend %icon;
+    @extend .#{$btn-standard_icon};
+    &:not(:last-child) {
+        margin-bottom: $paragraph-spacing;
+    }
+    &:before {
+        position: absolute;
+        top:0;
+        right: 20px;
+        font-size: 0.7em;
+        line-height: $btn-standard_height;
+        padding-left: 7px;
+        color: $btn-standard_txt-color;
+        @include base-transition();
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        color: $base-text-color;
+        background-color: transparent;
+        border-color: $btn-standard_bg-color;
+        outline: none !important;
+        &:before {
+            color: $btn-standard_bg-color;
+            transform: translateX(3px);
+        }
+        [class*="icon-"] {
+            color: #FFF;
+        }
+    }
+    &:focus {
+        top: 1px;
+        border-color: darken($btn-standard_txt-color, 20%);
+    }
+    [class*="icon-"] {
+        display: inline-block;
+        margin-right: 9px;
+        vertical-align: top;
+        color: $dominant-color;
+        font-size: 1.0rem;
+    }
+}
+
+.btn--invert {
+    color: $base-text-color;
+    background-color: transparent;
+    border-color: $btn-standard_bg-color;
+    border-width: 2px;
+    &:before {
+        color: $dominant-color;
+    }
+    &:hover {
+        color: $btn-standard_txt-color;
+        background-color: $btn-standard_bg-color;
+        &:before {
+            color: #FFF;
+        }
+    }
+    &:focus {
+        border-width: 2px;
+    }
+}
+
+
+.btn-ring {
+    display: inline-block;
+    width: $btn-ring-size;
+    height: $btn-ring-size;
+    line-height: $btn-ring-size - 2;
+    font-size: $btn-ring_font-size;
+    text-align: center;
+    vertical-align: middle;
+    color: $btn-ring_color;
+    border: $btn-ring_border-width solid $btn-ring_border-color;
+    border-radius: 100%;
+    @include base-transition();
+    &:hover,
+    &:focus {
+        color: #FFF;
+        border-color: $btn-ring_color-hover;
+        background-color: $btn-ring_color-hover;
+    }
+    .bloc-bg-colored & {
+        &:hover,
+        &:focus {
+            border-color: #FFF;
+            background-color: #FFF;
+            .icon:before,
+            & {
+                color: $btn-ring_color-hover;
+            }
+        }
+    }
+}
+
+.btn-ring--invert {
+    color: #FFF;
+    border-color: $btn-ring_color-hover;
+    background-color: $btn-ring_color-hover;
+    &:hover,
+    &:focus {
+        color: #FFF;
+        border-color: darken($btn-ring_color-hover, 10%);
+        background-color: darken($btn-ring_color-hover, 10%);
+    }
+}
+
+.btn-ring--border {
+    color: $dominant-color;
+    border-color: #e6e6e6; 
+    background-color: transparent;
+    &:hover,
+    &:focus {
+        color: #FFF;
+        border-color: darken($btn-ring_color-hover, 10%);
+        background-color: darken($btn-ring_color-hover, 10%);
+    }
+}
+
+.btn-ring--color2 {
+    border-color: $dominant-color;
+    color: #FFF;
+}
+
+.btn-ring--color3 {
+    border-color: $dominant-color;
+    color: $base-color;
+}
+
+.btn-bordered {
+    height: $btn-bordered_size;
+    line-height: $btn-bordered_size;
+    padding: $btn-bordered_padding;
+    border: $btn-bordered_border;
+    [class^="icon"] {
+        font-size: 16px;
+        color: $dominant-color;
+        line-height: 0;
+        vertical-align: middle;
+    }
+    &:hover {
+        border-color: $dominant-color;
+        background-color: $dominant-color;
+        &:before,
+        span {
+            color: #FFF;
+        }
+    }
+}
+
+.btn-text-only {
+    color: $dominant-color;
+    background-color: transparent;
+    border: none;
+    padding-left:0;
+    &:hover, &:focus {
+        background-color: transparent;
+        color: inherit;
+        &:before {
+            color: inherit;
+        }
+    }
+}
+
+/* Groupes de boutons
+----------------------------------------------------------------------------------------*/
+
+.btn-group {
+    @include display(flex);
+    @media #{$min-small} {
+        // justify-content: space-between;
+        align-items: flex-end;
+    }
+    @media #{$max-small} {
+        @include flex-direction(column);
+    }
+    .btn, .btn-ring {
+        display: block;
+        margin-bottom: 0;
+        @media #{$min-small} {
+            margin-right: 20px;
+        }   
+        @media #{$max-small} {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+/* Customs
+----------------------------------------------------------------------------------------*/
+
+/* Nanobar button
+------------------------------------------*/
+
+#cookie-bar-button {
+    background-color: $dominant-color !important;
+}

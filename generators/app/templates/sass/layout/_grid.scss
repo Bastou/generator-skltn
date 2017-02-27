@@ -1,0 +1,203 @@
+/* $GRID 
+========================================================================== */
+
+//IE 11 flexbox fix.
+//TODO: Semble repare. A tester sur IE11
+//https://github.com/twbs/bootstrap/issues/17310
+// @if $enable-flex {
+//   @each $breakpoint in map-keys($grid-breakpoints) {
+//     @include media-breakpoint-up($breakpoint) {
+//       @for $size from 1 through $grid-columns {
+//         .col-#{$breakpoint}-#{$size} {
+//           max-width: percentage($size / $grid-columns);
+//         }
+//       }
+//     }
+//   }
+// }
+
+.container-xl {
+  @extend .container;
+  max-width: 1660px;
+}
+
+.container-11 {
+ @extend .container;
+ width: 1070px;
+}
+
+.container-8 {
+ @extend .container;
+ width: 960px;
+}
+
+.row > [class*="col-"] {
+  padding-bottom: $grid-gutter-width;
+  @media #{$max-small} {
+    padding-bottom: 30px;
+  }
+}
+
+/* Col table same height
+----------------------------------------------------------------------------------------*/
+
+@media #{$min-medium} {
+  .row-table {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+  }
+
+  .col-table {
+    display: table-cell;
+    vertical-align: top;
+    float: none;
+    height: 100%;
+  }
+
+  .col-top {
+    vertical-align: top;
+  }
+  .col-middle {
+    vertical-align: middle;
+  }
+  .col-bottom {
+    vertical-align: bottom;
+  } 
+}
+
+/* Custom gutters
+----------------------------------------------------------------------------------------*/
+
+// 60px gutter
+@media #{$min-large} {
+
+  .gutter-60 { 
+    &.container {
+      width: 1200px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .row {
+      margin-right: -30px;
+      margin-left: -30px;
+    }
+    .row > [class*="col-"] {
+      padding-right: 30px;
+      padding-left: 30px;
+      padding-bottom: 60px;
+    }
+  }
+
+}
+// 30px gutter
+$gutter-s: 15px;
+@media #{$min-large} {
+
+  .gutter-s { 
+    &.container {
+      padding-left: $gutter-s;
+      padding-right: $gutter-s;
+    }
+    .row {
+      margin-right: -$gutter-s;
+      margin-left: -$gutter-s;
+    }
+    .row > [class*="col-"] {
+      padding-right: $gutter-s;
+      padding-left: $gutter-s;
+      padding-bottom: $gutter-s*2;
+    }
+  }
+}
+// 40px gutter
+$gutter-m: 20px;
+@media #{$min-large} {
+
+  .gutter-m { 
+    &.container {
+      padding-left: $gutter-m;
+      padding-right: $gutter-m;
+    }
+    .row {
+      margin-right: -$gutter-m;
+      margin-left: -$gutter-m;
+    }
+    .row > [class*="col-"] {
+      padding-right: $gutter-m;
+      padding-left: $gutter-m;
+      padding-bottom: $gutter-m*2;
+    }
+  }
+}
+
+.col-md-inset-right-1 {
+  padding-right: 8.3333%;
+}
+
+.col-md-inset-left-1 {
+  padding-left: 8.3333%;
+}
+
+/* Custom columns
+----------------------------------------------------------------------------------------*/
+
+
+/* Col 20%
+------------------------------------------*/
+
+$col2-4name: '2-4';
+$col2-4size : 2.4;
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  .col-#{$breakpoint}-#{$col2-4name} {
+    @include make-col($col2-4size);
+    //@include make-col-span(2.4);
+      max-width: percentage($col2-4size / $grid-columns);
+      @media #{$max-small} {
+        max-width: 100%;
+        flex: 0 0 100%;
+      }
+    }
+}
+
+/* Flex options
+----------------------------------------------------------------------------------------*/
+
+// Direction
+.direction-colum {
+  flex-direction: column;
+}
+
+.direction-row {
+  flex-direction: row;
+}
+
+// Align items
+.flex-align-center {
+  align-items: center;
+}
+
+
+/* Row même taille
+----------------------------------------------------------------------------------------*/
+
+.row--same-height {
+  [class*="col-"] {
+    @include display('flex');
+  }
+}
+
+/* Col aside
+----------------------------------------------------------------------------------------*/
+
+.col-aside {
+  @media #{$max-medium} {
+    order: 1;
+  }
+}
+
+
+
+
+

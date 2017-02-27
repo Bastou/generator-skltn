@@ -1,0 +1,12 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    <%= authorname %> <<%= authoremail %>> -- developer
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5,
+    SASS, Boostrap 4, Bourbon, jQuery, jQuery UI, <% if (includeGallery) { %>jQuery fancybox, <% } %><% if (includeSlider) { %>iDangero swiper, <% }%><% if (includeMap) { %>google map Javascript API, <% } %> 
+    node.js, npm, gulp

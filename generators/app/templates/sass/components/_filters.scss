@@ -1,0 +1,39 @@
+/* Filters
+   ========================================================================== */
+
+
+.filter {
+	ul {
+		margin-bottom: 0px;
+	}
+	list-style: none;
+	li {
+		display: inline-block;
+		margin-right: 30px;
+		font-weight: 600;
+		text-transform: uppercase;
+		&:last-child {
+			margin-right: 0;
+		}
+		a {
+			color: $base-color;
+			text-decoration: none;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: all .3s;
+			&:hover,
+			&:active {
+				color: $dominant-color;
+			}
+		}
+	}
+}
+@media(max-width:767px) {
+	.filter li {
+		display: block;
+		margin-right: 0;
+		margin-bottom: 10px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

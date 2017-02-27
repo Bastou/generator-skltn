@@ -1,0 +1,14 @@
+/* $TABS
+   ========================================================================== */
+
+   .ui-tabs .ui-tabs-panel {
+    padding: 0;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    background: none;
+    border: none;
+    &:hover {
+    	color: #FFF;
+    }
+}

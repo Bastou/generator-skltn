@@ -1,0 +1,290 @@
+@mixin centerer($position: '') {
+	position: absolute;
+	top: 50%;
+	@if $position=='vertical' {
+		transform: translate(0, -50%);
+	} @elseif $position=='horizontal' {
+		top: inherit;
+		left: 50%;
+		transform: translate(-50%, 0);
+	} @else {
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@mixin line($centered: 'true', $color: $green, $width: 100px, $height: 2px) {
+	content: "";
+	position: absolute;
+	width: $width;
+	height: $height;
+	background: $color;
+	left: 0;
+	bottom: -12px;
+	@if $centered=='true' {
+		right: 0;
+		margin: 0 auto;
+	}
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+@mixin cover-background($img-uri, $background-top:"center", $background-left:"center", $background-attachment:"") {
+	background: url($img-uri) no-repeat unquote($background-top) unquote($background-left) unquote($background-attachment);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+/// Shorthand mixin for offset positioning
+/// @param {String} $position - Either `relative`, `absolute` or `fixed`
+/// @param {Length} $top [null] - Top offset
+/// @param {Length} $right [null] - Right offset
+/// @param {Length} $bottom [null] - Bottom offset
+/// @param {Length} $left [null] - Left offset
+@mixin position($position, $centered: 'false', $top: null, $right: null, $bottom: null, $left: null) {
+	position: $position !important;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	@if $centered=='true' {
+		right: 0;
+		left: 0;
+		margin: 0 auto;
+		text-align: center;
+	}
+}
+
+// To extend the background outide of a bloc
+@mixin bg-outside($position: 'left', $parent-positioning: 'true', $color: $color1) {
+	@if $parent-positioning=='true' {
+		position: relative;
+	}
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: 200%;
+		background-color: $color;
+		@if $position=='left' {
+			right: 100%;
+		}
+		@if $position=='right' {
+			left: 100%;
+		}
+		@if $position=='top' {
+			bottom: 100%;
+		}
+		@if $position=='bottom' {
+			top: 100%;
+		}
+	}
+}
+
+
+// Convert px to em
+// Note: Add the 62.5% font size on html tag
+@mixin rem($property, $values) {
+	$px : (); 
+	$rem: (); 
+
+	@each $value in $values { 
+
+		@if $value == 0 or $value == auto { 
+			$px : append($px , $value);
+			$rem: append($rem, $value);
+		}
+
+		@else {
+			$unit: unit($value);    
+			$val: parseInt($value); 
+
+			@if $unit == "px" {  
+				$px : append($px,  $value);
+				$rem: append($rem, ($val / 10 + rem));
+			}
+
+			@if $unit == "rem" { 
+				$px : append($px,  ($val * 10 + px));
+				$rem: append($rem, $value);
+			}
+		}
+	}
+
+	@if $px == $rem {     
+		#{$property}: $px;  
+	} @else {
+		#{$property}: $px;  
+		#{$property}: $rem; 
+	}
+}
+
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+		);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+		);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+// =============================================================================
+// Darken background behind an element 
+// =============================================================================
+
+// Element has to be positionned relative or absolute 
+
+@mixin darkenbg( $width: 200%, $height: 400% ) {
+	&:before {
+		content: "";
+		background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 8%, rgba(50, 50, 50, 0.1) 26%, rgba(161, 161, 161, 0) 66%, rgba(255, 255, 255, 0) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00ffffff',GradientType=1 );
+		width: $width;
+		height: $height;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: -1;
+	}
+}
+
+// ==========================================================================
+//   HEXA TO RGBA
+//   ==========================================================================
+
+@mixin background-opacity($color, $opacity: 0.3) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+   }
+
+// ==========================================================================
+//   FONT SIZE REM
+//   ==========================================================================
+
+@mixin fontSize($size, $line:0) {
+	font-size: #{$size}px;
+	font-size: #{$size/10}rem;
+	@if $line != 0 {
+		line-height: #{$line}px;
+		line-height: #{$line/10}rem;
+	} @else {
+		line-height: normal;
+	}
+}
+
+// ==========================================================================
+//   TEXT SHADOW
+//   =========================================================================
+
+/// Text Shadow
+/// @param {Size} $x [2px] - X
+/// @param {Size} $y [2px] - Y
+/// @param {Size} $blur [2px] - Blur
+/// @param {Color} $color [rgba(0,0,0,.4)] - Color
+
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+	text-shadow: $x $y $blur $color;
+}
+
+// ==========================================================================
+//   BORDER GRADIENT
+//   =========================================================================
+
+@mixin box-gradient($from, $to, $weight: 0) {
+	$mix-main: mix($from, $to);
+	$mix-sub-from: mix($mix-main, $from);
+	$mix-sub-to: mix($mix-main, $to);
+	$boxweight : 1px;
+	@if ($weight > 1) {
+		$weight : $weight/2;
+		$boxweight : $weight;
+	}
+		 	box-shadow:
+		 	// left - start color
+		 	(-$boxweight) 0  0 $weight rgba($mix-sub-from, .25),
+		  // top left - mix of two colors plus start
+		  (-$boxweight)   (-$boxweight)    0 $weight rgba($from, .75),
+		  // bottom left - mix of two colors plus start
+		  (-$boxweight)   $boxweight  0 $weight rgba($mix-sub-from, .25),
+		  // top mid - mix of two colors
+		  0    (-$boxweight)  0 $weight rgba($mix-main, .5),
+		  // bottom mid - mix of two colors
+		  0     $boxweight  0 $weight rgba($mix-main, .5),
+		  // top right - mix of two colors plus end
+		  $boxweight  (-$boxweight)  0 $weight rgba($mix-sub-to, .25),
+		  // bottom right - mix of two colors plus end
+		  $boxweight   $boxweight  0 $weight rgba($to, .75),
+		  //right - end color
+		  $boxweight 0 0 $weight rgba($mix-sub-to, .25),
+
+			0  0    0 $weight*2 rgba($to, .5),
+			0  0    0 $weight*2 rgba($from, .5);
+}
+
+// ==========================================================================
+//   CLIP PATH
+//   =========================================================================
+
+@mixin clip-path($clip) {
+  -webkit-clip-path: $clip;
+  -moz-clip-path: $clip;
+  -ms-clip-path: $clip;
+  clip-path: $clip;
+}
+
+
+// ==========================================================================
+//   LIST UNSTYLED
+//   =========================================================================
+
+@mixin list-unstyled {
+	padding-left: 0;
+	list-style: none;
+}

@@ -1,0 +1,462 @@
+/* $HELPERS
+   ========================================================================== */
+
+/* ---------------------------------- */
+/* ==visual helpers                   */
+/* .. use them with parcimony !       */
+/* ---------------------------------- */
+
+.wauto {
+	width: auto;
+}
+
+.wfull {
+	width: 100%;
+}
+
+.hauto {
+	height: auto;
+}
+
+.hfull {
+	height: 100%;
+}
+
+.d-i {
+	display: inline;
+}
+
+.d-ib {
+	display: inline-block;
+}
+
+.d-b {
+	display: block !important;
+}
+.d-f {
+	@include display(flex);
+}
+
+/* spacing helpers
+p,m = padding,margin
+a,t,r,b,l = all,top,right,bottom,left
+s,m,l,n = small, medium, large, none
+*/
+.man,
+.ma0 {
+	margin: 0;
+}
+
+.pan,
+.pa0 {
+	padding: 0;
+}
+
+.mauto {
+	margin: 0 auto;
+}
+
+.mas {
+	margin: $small-value;
+}
+
+.mam {
+	margin: $medium-value;
+}
+
+.mal {
+	margin: $large-value;
+}
+
+.pas {
+	padding: $small-value;
+}
+
+.pam {
+	padding: $medium-value;
+}
+
+.pal {
+	padding: $large-value;
+}
+
+.mtn,
+.mt0 {
+	margin-top: 0;
+}
+
+.mtt {
+	margin-top: $tiny-value;
+}
+
+.mts {
+	margin-top: $small-value;
+}
+
+.mtm {
+	margin-top: $medium-value;
+}
+
+.mtl {
+	margin-top: $large-value;
+}
+
+.mrn,
+.mr0 {
+	margin-right: 0;
+}
+
+.mrt {
+	margin-right: $tiny-value;
+}
+
+.mrs {
+	margin-right: $small-value;
+}
+
+.mrm {
+	margin-right: $medium-value;
+}
+
+.mrl {
+	margin-right: $large-value;
+}
+
+.mbn,
+.mb0 {
+	margin-bottom: 0 !important;
+}
+
+.mbt {
+	margin-bottom: $tiny-value;
+}
+
+.mbs {
+	margin-bottom: $small-value;
+}
+
+.mbm {
+	margin-bottom: $medium-value;
+}
+
+.mbl {
+	margin-bottom: $large-value;
+}
+
+.mbxl {
+	margin-bottom: $extra-large-value;
+}
+
+.mln,
+.ml0 {
+	margin-left: 0;
+}
+
+.mlt {
+	margin-left: $tiny-value;
+}
+
+.mls {
+	margin-left: $small-value;
+}
+
+.mlm {
+	margin-left: $medium-value;
+}
+
+.mll {
+	margin-left: $large-value;
+}
+
+.ptn,
+.pt0 {
+	padding-top: 0;
+}
+
+.pts {
+	padding-top: $small-value;
+}
+
+.ptm {
+	padding-top: $medium-value;
+}
+
+.ptl {
+	padding-top: $large-value;
+}
+
+.ptxl {
+	padding-top: $extra-large-value;
+}
+
+.prn,
+.pr0 {
+	padding-right: 0;
+}
+
+.prt {
+	padding-right: $tiny-value;
+}
+
+.prs {
+	padding-right: $small-value;
+}
+
+.prm {
+	padding-right: $medium-value;
+}
+
+.prl {
+	padding-right: $large-value;
+}
+
+.pbn,
+.pb0 {
+	padding-bottom: 0 !important;
+}
+
+.pbs {
+	padding-bottom: $small-value;
+}
+
+.pbm {
+	padding-bottom: $medium-value;
+}
+
+.pbl {
+	padding-bottom: $large-value;
+}
+
+.pbxl {
+	padding-bottom: $extra-large-value;
+}
+
+.pln,
+.pl0 {
+	padding-left: 0;
+}
+
+.plt {
+	padding-left: $tiny-value;
+}
+.pls {
+	padding-left: $small-value;
+}
+
+.plm {
+	padding-left: $medium-value;
+}
+
+.pll {
+	padding-left: $large-value;
+}
+
+%reset-vertical-margin {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+%reset-horizontal-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+/* others
+   ========================================================================== */
+
+   .visually-hidden {
+   	position: absolute !important;
+   	border: 0 !important;
+   	height: 1px !important;
+   	width: 1px !important;
+   	padding: 0 !important;
+   	overflow: hidden !important;
+   	clip: rect(1px, 1px, 1px, 1px) !important;
+   }
+
+.overflow-hidden {
+		overflow: hidden !important;
+	}
+
+   .text-justify p,
+   .text-justify {
+   	text-align: justify;
+   }
+
+   .no-underline, .no-underline:before {
+   	text-decoration: none;
+   }
+
+   figure.highlight {
+   	padding: 9px 14px;
+   	margin: 14px 0;
+   	background-color: #f7f7f9;
+   	border: 1px solid #e1e1e8;
+   	border-radius: 4px;
+   }
+
+   .text-shine {
+   	text-shadow: 0px 0px 5px rgba(#FFF, 0.5);
+   }
+
+
+/* POSITION
+----------------------------------------------------------------------------------------*/
+
+// Set the line-height = height on parent element
+.v-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.absolute-center {
+	@include centerer();
+}
+
+.absolute-fit {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+
+.offset-up {
+	@media #{$min-small} {
+			margin-top: -$ultra-large-value;
+	}
+}
+
+/* Flex positions */
+
+.flex-start { 
+	-webkit-align-items: flex-start;
+	align-items: flex-start; 
+}
+
+.flex-end { 
+	-webkit-align-items: flex-end; 
+	align-items: flex-end; 
+}
+
+.flex-center {
+	-webkit-align-items: center; 
+	align-items: center; 
+}
+
+.center { 
+	-webkit-align-items: center; 
+	align-items: center;
+	justify-content: center;
+	text-align: center; 
+	margin: 0 auto;
+}  
+
+.justify-end {
+	justify-content: flex-end;
+}
+
+.justify-space-between {
+	justify-content: space-between;
+}
+
+.item-end {
+	margin-left: auto;
+}
+
+/* Position text
+------------------------------------------*/
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.v-align-middle {
+	vertical-align: middle;
+}
+
+/* Position float
+------------------------------------------*/
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+/* IMAGES
+----------------------------------------------------------------------------------------*/
+
+.fluid-size {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+.cover {
+	object-fit: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	overflow: hidden; // Cuts off the parts of the image poking out
+}
+
+.overlay-dark {
+	@extend .absolute-fit;
+	z-index: 1;
+	background-color: rgba(#000, 0.2);
+}
+/* BLOC COLORED
+----------------------------------------------------------------------------------------*/
+
+.bloc-dark-bg, .bloc-bg-colored {
+	&, a, span, i, p, li,	*:after, *:before {
+		color: #FFF;
+	}
+	a:hover {
+		color: #FFF;
+	}
+}
+
+.bg-dominant-color {
+	background-color:$dominant-color;
+}
+
+.bg-base-color {
+	background-color:$base-color;
+}
+
+.bg-lightgrey {
+	background-color: $light-grey;
+}
+
+.bg-grey {
+	background-color: $grey;
+}
+
+/* ---------------------------------- */
+/* ==admin dev classes */
+/* For debbuging purpose */
+/* ---------------------------------- */
+
+.dev,
+.hidden-dev {
+	display: none;
+	.devmode & {
+		display: block;
+	}
+}
