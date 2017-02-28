@@ -23,9 +23,9 @@ module.exports = yeoman.generators.Base.extend({
             this.log(" ______     __  __     __         ______   __   __    \n/\\  ___\\   /\\ \\/ /    /\\ \\       /\\__  _\\ /\\ \"-.\\ \\   \n\\ \\___  \\  \\ \\  _\"-.  \\ \\ \\____  \\/_/\\ \\/ \\ \\ \\-.  \\  \n \\/\\_____\\  \\ \\_\\ \\_\\  \\ \\_____\\    \\ \\_\\  \\ \\_\\\\\"\\_\\ \n  \\/_____/   \\/_/\\/_/   \\/_____/     \\/_/   \\/_/ \\/_/ \n                                                      ");
             this.log(yosay('\'Hey! This is ' +  
                 chalk.white.bgBlack.bold('SKLTN')  + 
-                '. A website skeleton to kickstart your new php web project on top of ' +
+                '. A website generator to kickstart your new web project on top of ' +
                 chalk.magenta('  HTML5 Boilerplate, SASS, Bootstrap 4, jQuery, Gulp')  +
-                '. It\'s fully customizable and it include lot of features'));
+                '. It\'s fully customizable and it includes lot of features'));
         }
         this.prompt([{
             type: 'input',
@@ -127,27 +127,27 @@ module.exports = yeoman.generators.Base.extend({
             }, {
                 name: 'Map google map',
                 value: 'map',
-                checked: false
+                checked: true
             }, {
                 name: 'Accordion',
                 value: 'accordion',
-                checked: false
+                checked: true
             }, {
                 name: 'Tabs',
                 value: 'tabs',
-                checked: false
+                checked: true
             }, {
                 name: 'Gallery with lightbox',
                 value: 'gallery',
-                checked: false
+                checked: true
             }, {
                 name: 'Filters',
                 value: 'filters',
-                checked: false
+                checked: true
             }, {
                 name: 'Progress bar',
                 value: 'progressBar',
-                checked: false
+                checked: true
             }]
         }, {
             type: 'confirm',

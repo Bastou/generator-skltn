@@ -62,7 +62,7 @@ $light-grey : #eaeaea;
 $light-grey2 : #f2f2f2;
 
 // background colors
-$base-background: #a4a3a3; // body background color
+$base-background: #ededed; // background color
 $body-background: #ffffff; // body background color
 $bg-color1     : #e4edf2; // primary elements background color
 $bg-color2     : #8aabc2; // secondary elements background color
@@ -80,6 +80,8 @@ $ultra-large-value      : 160px; // ultra large value for margins / paddings
 /* Layout
 ----------------------------------------------------------------------------------------*/
 
+$fullwidth-container-width: 1660px;
+
 // If body boxed and not full width
 $main-container-width: 1200px;
 
@@ -93,8 +95,7 @@ $bootstrap-padding: 20px;
 $container-max-widths: (
   sm: 720px,
   md: 960px,
-  lg: 1200px,
-  xl: $main-container-width
+  lg: $main-container-width
 ) !default;
 
 

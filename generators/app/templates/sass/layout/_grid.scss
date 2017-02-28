@@ -18,7 +18,7 @@
 
 .container-xl {
   @extend .container;
-  max-width: 1660px;
+  max-width: $fullwidth-container-width;
 }
 
 .container-11 {
